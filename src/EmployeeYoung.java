@@ -4,6 +4,7 @@
  *
  * @author Brandon Young
  */
+// File Name: EmployeeYoung.java
 public abstract class EmployeeYoung {
 
     // Generic employee fields
@@ -17,7 +18,7 @@ public abstract class EmployeeYoung {
      */
     public String getName() {
         return name;
-    }
+    } // end getName
 
     /**
      * The setName method allows you to set the name of the employee
@@ -27,7 +28,7 @@ public abstract class EmployeeYoung {
      */
     public void setName(String name) {
         this.name = name;
-    }
+    } // end setName
 
     /**
      * The getAddress method returns the Employee address
@@ -37,7 +38,7 @@ public abstract class EmployeeYoung {
      */
     public String getAddress() {
         return address;
-    }
+    } // end getAddress
 
     /**
      * The setAdress method sets the Employee address
@@ -47,7 +48,7 @@ public abstract class EmployeeYoung {
      */
     public void setAddress(String address) {
         this.address = address;
-    }
+    } // end setAddress
 
     /**
      * The getSSN method returns the Employees SSN Number
@@ -57,7 +58,7 @@ public abstract class EmployeeYoung {
      */
     public String getSSN() {
         return ssn;
-    }
+    } // end getSSN
 
     /**
      * The setSSN method allows you to set the Employee SSN
@@ -65,11 +66,13 @@ public abstract class EmployeeYoung {
      * @param ssn String: The SSN of the Employee
      */
     public void setSSN(String ssn) {
-        if (ssn.length() == 9)
+        if (ssn.length() == 9) {
             this.ssn = ssn;
-        else
-            throw
-    }
+        }
+        else {
+            throw new
+        }
+    } // end setSSN
 
     /**
      * The getDepartment method returns the department that the employee works in
@@ -79,7 +82,7 @@ public abstract class EmployeeYoung {
      */
     public String getDepartment() {
         return department;
-    }
+    } // end getDepartment
 
     /**
      * The setDepartment method sets the department the employee works in
@@ -89,7 +92,7 @@ public abstract class EmployeeYoung {
      */
     public void setDepartment(String department) {
         this.department = department;
-    }
+    } // end setDepartment
 
     /**
      * The pay method returns the pay of the employee
@@ -98,4 +101,5 @@ public abstract class EmployeeYoung {
      * @return (double): The pay of the employee
      */
     public abstract double pay();
-}
+
+} // end EmployeeYoung
