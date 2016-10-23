@@ -70,10 +70,9 @@ public abstract class EmployeeYoung {
     public void setSSN(String ssn) {
         if (ssn.length() == 9) {
             this.ssn = ssn;
-        }
-        else {
+        } else {
             throw new InputMismatchException("InputMismatchException: String too long");
-        }
+        } // end if else
     } // end setSSN
 
     /**
