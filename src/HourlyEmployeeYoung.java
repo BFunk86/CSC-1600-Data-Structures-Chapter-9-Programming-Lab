@@ -6,7 +6,11 @@
  */
 // File Name: HourlyEmployeeYoung.java
 public class HourlyEmployeeYoung extends EmployeeYoung {
-    public HourlyEmployeeYoung() {
+    public HourlyEmployeeYoung(String name, String address, String ssn, String department) {
+        setName(name);
+        setAddress(address);
+        setSSN(ssn);
+
 
     } // end default constructor
 

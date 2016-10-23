@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 /**
  * CSC 1600 Data Structures
  * CH2 Programming Lab
@@ -70,7 +72,7 @@ public abstract class EmployeeYoung {
             this.ssn = ssn;
         }
         else {
-            throw new
+            throw new InputMismatchException("InputMismatchException: String too long");
         }
     } // end setSSN
 
