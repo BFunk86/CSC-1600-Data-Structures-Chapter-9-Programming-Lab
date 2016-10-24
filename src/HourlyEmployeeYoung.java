@@ -93,7 +93,17 @@ public class HourlyEmployeeYoung extends EmployeeYoung {
 
     @Override
     public double pay() {
-        return hoursWorked * hourlyWage;
+        if (hoursWorked <= 40) {
+            return hoursWorked * hourlyWage;
+        } else {
+            return ((hoursWorked - 40) * (hourlyWage * 1.5)) + (40 * hourlyWage);
+        }
     } // end pay
+
+    @Override
+    public String toString() {
+        return String.format("%-25s %s %n%-25s %s %n%-25s %.2f",
+                "Name:", getName(), "Department:", getDepartment(), "Weekly Pay:", pay());
+    }
 
 } // end HourlyEmployeeYoung
