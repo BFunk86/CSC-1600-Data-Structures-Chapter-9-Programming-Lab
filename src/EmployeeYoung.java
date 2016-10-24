@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
  * @author Brandon Young
  */
 // File Name: EmployeeYoung.java
-public abstract class EmployeeYoung extends RuntimeException{
+public abstract class EmployeeYoung {
 
     // Generic employee fields
     private String name, address, ssn, department;
