@@ -16,64 +16,84 @@ public class HourlyEmployeeYoung extends EmployeeYoung {
     private double hoursWorked;
     // The Current Federal Minimum Wage
     private final double MIN_WAGE = 7.25;
+    // The number of hours in a week
+    private final double HOURS_IN_WEEK = 168;
 
     /**
      * The Constructor for the HourlyEmployeeYoung class.
-     * Precondition:
-     * Postcondition:
+     * Precondition: none
+     * Post Condition: creates an Hourly Employee Object
      * @param name String: The name of the Hourly Employee
      * @param address String: The address of the Hourly Employee
      * @param ssn String: The social security number of the Hourly Employee
      * @param department String: The department the Hourly Employee works in
      */
-    public HourlyEmployeeYoung(String name, String address, String ssn, String department) {
+    public HourlyEmployeeYoung(String name, String address, String ssn, String department,
+                               double hoursWorked, double hourlyWage) {
         super(name, address, ssn, department);
+        this.hoursWorked = hoursWorked;
+        this.hourlyWage = hourlyWage;
     } // end default constructor
 
     /**
      * The getHourlyWage method returns the hourly wage for the Hourly Employee
-     * Precondition:
-     * Postcondition
+     * Precondition: none
+     * Post Condition: Returns the hourly wage of the employee
      * @return (double): The hourly Wage of the Employee
      */
     public double getHourlyWage() {
         return hourlyWage;
-    }
+    } // end getHourlyWage
 
     /**
-     * The setHourlyWage method sets the hourly wage for the Employee
+     * The setHourlyWage method sets the hourly wage for the Employee and throws an error if the input is not a number
+     * or less than the current minimum federal wage.
      * Precondition: hourlyWage is an Integer > MIN_WAGE
      * Post Condition: Sets the Employee hourly wage
      * @param hourlyWage double: The hourly wage of the Employee
      */
-    public void setHourlyWage(double hourlyWage) throws InputMismatchException{
+    public void setHourlyWage(double hourlyWage) throws InputMismatchException, InputOutOfBoundsException {
         if (hourlyWage >= MIN_WAGE) {
             this.hourlyWage = hourlyWage;
+        } else if (hourlyWage < MIN_WAGE) {
+            throw new InputOutOfBoundsException("InputOutOfBoundsException: hourlyWage must be greater than " +
+                    MIN_WAGE + ".");
         } else {
-            throw new InputMismatchException("InputMismatchException: hourlyWage must be an integer greater than "
-                    + MIN_WAGE + ".");
+            throw new InputMismatchException("InputMismatchException: hourlyWage must be in the form of a number.");
         } // end if else
     } // end setHourlyWage
 
     /**
-     *
-     * @return
+     * The getHoursWorked returns the hours worked by the Employee
+     * Precondition: none
+     * Post Condition: Returns the hours worked for the week.
+     * @return (double): The amount of hours worked
      */
     public double getHoursWorked() {
         return hoursWorked;
-    }
+    } // end getHoursWorked
 
     /**
-     *
+     * The setHoursWorked method sets the hours worked for the hourly Employee
+     * Precondition: hoursWorked is a number >= 1 && hoursWorked < HOURS_IN_WEEK
      * @param hoursWorked
      */
     public void setHoursWorked(double hoursWorked) {
-        this.hoursWorked = hoursWorked;
-    }
+        if (hoursWorked >= 0 && hoursWorked < HOURS_IN_WEEK) {
+            this.hoursWorked = hoursWorked;
+        } else if (hoursWorked < 0) {
+            throw new InputOutOfBoundsException("InputOutOfBoundsException: hoursWorked must be greater than 0.");
+        } else if (hoursWorked > HOURS_IN_WEEK) {
+            throw new InputOutOfBoundsException("InputOutOfBoundsException: hoursWorked must be less than " +
+                    HOURS_IN_WEEK + ".");
+        } else {
+            throw new InputMismatchException("InputMismatchException: Input expected a number");
+        } // end if else
+    } // end setHoursWorked
 
     @Override
     public double pay() {
-
+        return hoursWorked * hourlyWage;
     } // end pay
 
 } // end HourlyEmployeeYoung
