@@ -25,7 +25,7 @@ public class SalariedEmployeeYoung extends EmployeeYoung{
      * @param salary double: The monthly salary of the salary Employee
      * @param leave double: The un-paid leave time used by the salary Employee
      */
-    public SalariedEmployeeYoung(String name, String address, String ssn, String department,
+    public SalariedEmployeeYoung(String name, String address, String ssn, Department department,
                                  double salary, double leave) {
         super(name, address, ssn, department);
         this.salary = salary;
@@ -100,5 +100,5 @@ public class SalariedEmployeeYoung extends EmployeeYoung{
     public String toString() {
         return String.format("%-25s %s %n%-25s %s %n%-25s %.2f %n%-25s %.2f",
                 "Name:", getName(), "Department:", getDepartment(), "Monthly Salary:", getSalary(), "Unpaid Leave Time:", getLeave());
-    }
+    } // end toString
 } // end SalariedEmployeeYoung

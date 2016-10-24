@@ -26,12 +26,85 @@
 public class DriverPayYoung {
     public static void main(String[] args) {
 
-        SalariedEmployeeYoung ceo = new SalariedEmployeeYoung("Bob White", "107 Grand Street", "123456789", "Bussiness", 6000.00, 0);
+        // An array of employees
+        EmployeeYoung[] staff = new EmployeeYoung[5];
 
-        HourlyEmployeeYoung janitor = new HourlyEmployeeYoung("Steve Michaels", "307 Riverfront Drive", "134568785", "Maintenance", 42, 12);
+        staff[0] = new SalariedEmployeeYoung("Yoda", "107 Dagobah Street", "123456789", Department.BUSSINESS, 6000.00, 8);
+        staff[1] = new SalariedEmployeeYoung("Obi-Wan Kenobi", "321 Tatooine Rd.", "256875859", Department.ACCOUNTING, 3500.00, 12);
+        staff[2] = new SalariedEmployeeYoung("Wicket Warrick", "Endoor Street", "789456123", Department.IT, 4000.00, 4);
+        staff[3] = new HourlyEmployeeYoung("Luke Skywalker", "556 Jedi Lane", "456987125", Department.SALES, 35, 15);
+        staff[4] = new HourlyEmployeeYoung("Princess Leia", "307 Alderaan HWY", "134568785", Department.MAINTENANCE, 42, 13);
 
-        System.out.println(ceo);
-        System.out.println(janitor);
+        // print current employee information
+        for (int index = 0; index < staff.length; index++) {
+            System.out.println(staff[index] + "\n");
+        } // end for loop
+
+        // Give everyone a 15% raise
+        for (EmployeeYoung employee: staff) {
+            if (employee instanceof SalariedEmployeeYoung) {
+                ((SalariedEmployeeYoung) employee).setSalary(((SalariedEmployeeYoung) employee).getSalary() * 1.15);
+            } else if (employee instanceof HourlyEmployeeYoung){
+                ((HourlyEmployeeYoung) employee).setHourlyWage(((HourlyEmployeeYoung) employee).getHourlyWage() * 1.15);
+            } // end if else
+        } // end for loop
+
+        // print new employee information after raise
+        for (int index = 0; index < staff.length; index++) {
+            System.out.println(staff[index] + "\n");
+        } // end for loop
 
     } // end main
-}
+} // end DriverPayYoung
+/*
+    SAMPLE OUTPUT:
+
+Name:                     Yoda
+Department:               BUSSINESS
+Monthly Salary:           6000.00
+Unpaid Leave Time:        8.00
+
+Name:                     Obi-Wan Kenobi
+Department:               ACCOUNTING
+Monthly Salary:           3500.00
+Unpaid Leave Time:        12.00
+
+Name:                     Wicket Warrick
+Department:               IT
+Monthly Salary:           4000.00
+Unpaid Leave Time:        4.00
+
+Name:                     Luke Skywalker
+Department:               SALES
+Weekly Pay:               525.00
+
+Name:                     Princess Leia
+Department:               MAINTENANCE
+Weekly Pay:               559.00
+
+Name:                     Yoda
+Department:               BUSSINESS
+Monthly Salary:           6900.00
+Unpaid Leave Time:        8.00
+
+Name:                     Obi-Wan Kenobi
+Department:               ACCOUNTING
+Monthly Salary:           4025.00
+Unpaid Leave Time:        12.00
+
+Name:                     Wicket Warrick
+Department:               IT
+Monthly Salary:           4600.00
+Unpaid Leave Time:        4.00
+
+Name:                     Luke Skywalker
+Department:               SALES
+Weekly Pay:               603.75
+
+Name:                     Princess Leia
+Department:               MAINTENANCE
+Weekly Pay:               642.85
+
+
+Process finished with exit code 0
+ */

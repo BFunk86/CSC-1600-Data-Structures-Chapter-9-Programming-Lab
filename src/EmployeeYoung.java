@@ -12,7 +12,9 @@ import java.util.InputMismatchException;
 public abstract class EmployeeYoung {
 
     // Generic employee fields
-    private String name, address, ssn, department;
+    private String name, address, ssn;
+    // An enum type for the department the employee works in
+    private Department department;
 
     /**
      * This is the parametrized constructor for the EmployeeYoung class.
@@ -22,7 +24,7 @@ public abstract class EmployeeYoung {
      * @param ssn String: The social security number of the Employee
      * @param department String: The department the Employee works in
      */
-    public EmployeeYoung (String name, String address, String ssn, String department) {
+    public EmployeeYoung (String name, String address, String ssn, Department department) {
         setName(name);
         setAddress(address);
         setSSN(ssn);
@@ -98,7 +100,7 @@ public abstract class EmployeeYoung {
      * Post Condition: Returns the department the employee works in ex. sales, marketing.
      * @return (String): The department the employee works in
      */
-    public String getDepartment() {
+    public Department getDepartment() {
         return department;
     } // end getDepartment
 
@@ -108,7 +110,7 @@ public abstract class EmployeeYoung {
      * Post Condition: Sets the department the employee works in
      * @param department String: The department the employee works in.
      */
-    private void setDepartment(String department) {
+    private void setDepartment(Department department) {
         this.department = department;
     } // end setDepartment
 
@@ -119,5 +121,6 @@ public abstract class EmployeeYoung {
      * @return (double): The pay of the employee
      */
     public abstract double pay();
+
 
 } // end EmployeeYoung

@@ -18,6 +18,10 @@ public class HourlyEmployeeYoung extends EmployeeYoung {
     private final double MIN_WAGE = 7.25;
     // The number of hours in a week
     private final double HOURS_IN_WEEK = 168;
+    // The overtime rate
+    private final double OVERTIME_RATE = 1.5;
+    // The amount of hours before overtime is given
+    private final double OVERTIME_HOURS = 40;
 
     /**
      * The Constructor for the HourlyEmployeeYoung class.
@@ -28,7 +32,7 @@ public class HourlyEmployeeYoung extends EmployeeYoung {
      * @param ssn String: The social security number of the Hourly Employee
      * @param department String: The department the Hourly Employee works in
      */
-    public HourlyEmployeeYoung(String name, String address, String ssn, String department,
+    public HourlyEmployeeYoung(String name, String address, String ssn, Department department,
                                double hoursWorked, double hourlyWage) {
         super(name, address, ssn, department);
         this.hoursWorked = hoursWorked;
@@ -93,17 +97,18 @@ public class HourlyEmployeeYoung extends EmployeeYoung {
 
     @Override
     public double pay() {
-        if (hoursWorked <= 40) {
+        if (hoursWorked <= OVERTIME_HOURS) {
             return hoursWorked * hourlyWage;
         } else {
-            return ((hoursWorked - 40) * (hourlyWage * 1.5)) + (40 * hourlyWage);
-        }
+            // return pay with overtime included
+            return ((hoursWorked - OVERTIME_HOURS) * (hourlyWage * OVERTIME_RATE)) + (OVERTIME_HOURS * hourlyWage);
+        } // end if else
     } // end pay
 
     @Override
     public String toString() {
         return String.format("%-25s %s %n%-25s %s %n%-25s %.2f",
                 "Name:", getName(), "Department:", getDepartment(), "Weekly Pay:", pay());
-    }
+    } // end toString
 
 } // end HourlyEmployeeYoung
