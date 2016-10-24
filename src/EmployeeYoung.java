@@ -4,13 +4,30 @@ import java.util.InputMismatchException;
  * CSC 1600 Data Structures
  * CH2 Programming Lab
  *
+ * The EmployeeYoung is an
+ *
  * @author Brandon Young
  */
 // File Name: EmployeeYoung.java
-public abstract class EmployeeYoung {
+public abstract class EmployeeYoung extends RuntimeException{
 
     // Generic employee fields
     private String name, address, ssn, department;
+
+    /**
+     * This is the parametrized constructor for the EmployeeYoung class.
+     *
+     * @param name String: The name of the Employee
+     * @param address String: The address of the Employee
+     * @param ssn String: The social security number of the Employee
+     * @param department String: The department the Employee works in
+     */
+    public EmployeeYoung (String name, String address, String ssn, String department) {
+        setName(name);
+        setAddress(address);
+        setSSN(ssn);
+        setDepartment(department);
+    }
 
     /**
      *  The getName method returns the name of the Employee
@@ -28,7 +45,7 @@ public abstract class EmployeeYoung {
      * Post Condition: Sets the name of the Employee
      * @param name String: The name of the Employee
      */
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     } // end setName
 
@@ -48,7 +65,7 @@ public abstract class EmployeeYoung {
      * Post Condition: sets the Employee address
      * @param address String: The employee address
      */
-    public void setAddress(String address) {
+    private void setAddress(String address) {
         this.address = address;
     } // end setAddress
 
@@ -67,7 +84,7 @@ public abstract class EmployeeYoung {
      * Precondition: ssn must be a string & ssn.length() == 9
      * @param ssn String: The SSN of the Employee
      */
-    public void setSSN(String ssn) {
+    private void setSSN(String ssn) {
         if (ssn.length() == 9) {
             this.ssn = ssn;
         } else {
@@ -91,13 +108,13 @@ public abstract class EmployeeYoung {
      * Post Condition: Sets the department the employee works in
      * @param department String: The department the employee works in.
      */
-    public void setDepartment(String department) {
+    private void setDepartment(String department) {
         this.department = department;
     } // end setDepartment
 
     /**
      * The pay method returns the pay of the employee
-     * Precondition:
+     * Precondition: none
      * Post Condition:
      * @return (double): The pay of the employee
      */
