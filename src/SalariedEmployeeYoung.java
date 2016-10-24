@@ -1,3 +1,5 @@
+import static java.lang.String.format;
+
 /**
  * CSC 1600 Data Structures
  * CH2 Programming Lab
@@ -78,8 +80,25 @@ public class SalariedEmployeeYoung extends EmployeeYoung{
         } // end if else
     } // end setLeave
 
+    /**
+     * The yearlySalary method returns the yearly salary of the employee
+     * Precondition: none
+     * Postcondition: Returns the yearly salary of the Employee
+     * @return (double): The yearly salary of the the Employee
+     */
+    public double yearlySalary() {
+        return salary * 12;
+    } // end yearlySalary
+
     @Override
     public double pay() {
         return salary;
     } // end Pay
+
+
+    @Override
+    public String toString() {
+        return String.format("%-25s %s %n%-25s %s %n%-25s %.2f %n%-25s %.2f",
+                "Name:", getName(), "Department:", getDepartment(), "Monthly Salary:", getSalary(), "Unpaid Leave Time:", getLeave());
+    }
 } // end SalariedEmployeeYoung

@@ -26,5 +26,12 @@
 public class DriverPayYoung {
     public static void main(String[] args) {
 
+        SalariedEmployeeYoung ceo = new SalariedEmployeeYoung("Bob White", "107 Grand Street", "123456789", "Bussiness", 6000.00, 0);
+
+        HourlyEmployeeYoung janitor = new HourlyEmployeeYoung("Steve Michaels", "307 Riverfront Drive", "134568785", "Maintenance", 42, 12);
+
+        System.out.println(ceo);
+        System.out.println(janitor);
+
     } // end main
 }
