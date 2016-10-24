@@ -78,7 +78,7 @@ public class HourlyEmployeeYoung extends EmployeeYoung {
      * Precondition: hoursWorked is a number >= 1 && hoursWorked < HOURS_IN_WEEK
      * @param hoursWorked
      */
-    public void setHoursWorked(double hoursWorked) throws InputOutOfBoundsException{
+    public void setHoursWorked(double hoursWorked) throws InputOutOfBoundsException {
         if (hoursWorked >= 0 && hoursWorked < HOURS_IN_WEEK) {
             this.hoursWorked = hoursWorked;
         } else if (hoursWorked < 0) {
